@@ -6,7 +6,7 @@
 #    By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/20 15:02:24 by mpeulet           #+#    #+#              #
-#    Updated: 2023/12/06 16:04:48 by mpeulet          ###   ########.fr        #
+#    Updated: 2023/12/07 14:24:04 by mpeulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror -g3
 
 VMINI	= valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --trace-children=yes\
-					 --suppressions=/mnt/nfs/homes/mpeulet/test/minishell_final/minishell.supp
+					 --suppressions=/mnt/nfs/homes/mpeulet/test/minishell_final/minishell.supp \
+					 --track-fds=yes
 
 .c.o:
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}

@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:53:30 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/12/06 13:25:41 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/12/07 15:05:30 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	unset(char **cmd, t_data *data, int i, int j)
 				j = ft_strlen(cmd[i]);
 			else
 				j = var_env_len(env_lst->content);
-			if (ft_strncmp(env_lst->content, cmd[i], j))
+			if (!ft_strncmp(env_lst->content, cmd[i], j))
 			{
 				pop_node(&data->env_list, return_link_by_str(env_lst, cmd[i]));
 				break ;

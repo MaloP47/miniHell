@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:58:40 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/12/06 13:26:55 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/12/07 15:40:43 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	free_data_2_and_exit(t_data *data, int code)
 	int	i;
 
 	i = 0;
+	close_fd(&data->exec->fd[0]);
+	close_fd(&data->exec->fd[1]);
 	free_tab1(data->exec->path);
 	free(data->exec->pids);
 	free(data->exec);
@@ -94,6 +96,7 @@ void	free_data_loop(t_data *data)
 	free(data->exec);
 	while (++i < data->nb_here)
 		free(data->here[i].delim);
+	close_all_pipes(data);
 	if (data->nb_here > 0)
 		free(data->here);
 }
