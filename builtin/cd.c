@@ -6,7 +6,7 @@
 /*   By: mpeulet <mpeulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:51:16 by mpeulet           #+#    #+#             */
-/*   Updated: 2023/12/06 14:07:34 by mpeulet          ###   ########.fr       */
+/*   Updated: 2023/12/08 10:05:43 by mpeulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	cd_point_point(t_data *data)
 
 	env_var = trim_path(getcwd(NULL, 0));
 	if (!env_var)
-		return (ft_printf_fd(2, ERR_CD_POINT_ALLOC), 0);
+		return (ft_printf_fd(2, ERR_PWD), 0);
 	if (chdir(env_var) == -1)
 	{
 		free(env_var);
